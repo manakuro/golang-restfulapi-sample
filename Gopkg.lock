@@ -2,35 +2,22 @@
 
 
 [[projects]]
-  digest = "1:1c70b4d7285f792bd387c1adac08825715147fa210b3d2826ffd2bf56be9455b"
+  digest = "1:cb53653e4e410ef91f3a83568464ef966e1732ad9a00b2719571f90eae9a15a7"
   name = "github.com/go-chi/chi"
-  packages = ["."]
+  packages = [
+    ".",
+    "middleware",
+  ]
   pruneopts = "UT"
-  revision = "da24bba8dcd4021cafac38724bf10dccc97c3e36"
-  version = "v4.0.2"
-
-[[projects]]
-  digest = "1:ec6f9bf5e274c833c911923c9193867f3f18788c461f76f05f62bb1510e0ae65"
-  name = "github.com/go-sql-driver/mysql"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "72cd26f257d44c1114970e19afddcd812016007e"
-  version = "v1.4.1"
-
-[[projects]]
-  digest = "1:c25289f43ac4a68d88b02245742347c94f1e108c534dda442188015ff80669b3"
-  name = "google.golang.org/appengine"
-  packages = ["cloudsql"]
-  pruneopts = "UT"
-  revision = "b2f4a3cf3c67576a2ee09e1fe62656a5086ce880"
-  version = "v1.6.1"
+  revision = "08d9051ef6546d57c5dca8eae13e6df362e2d568"
+  version = "v3.3.4"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
     "github.com/go-chi/chi",
-    "github.com/go-sql-driver/mysql",
+    "github.com/go-chi/chi/middleware",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
