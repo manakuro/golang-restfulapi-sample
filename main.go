@@ -60,15 +60,12 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 
 	defer db.Close()
 
-	var user models.User
-	db.First(&user, 1)
+	var users []models.User
+	db.Find(&users)
 
-	fmt.Println(user)
+	fmt.Println(users)
 
-	u := []models.User{
-		user,
-	}
-	respond(w, http.StatusOK, u)
+	respond(w, http.StatusOK, users)
 }
 
 func respond(w http.ResponseWriter, code int, payload interface{}) {
