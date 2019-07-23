@@ -6,11 +6,12 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/manakuro/golang-restfulapi-sample/models"
+
 	"github.com/go-sql-driver/mysql"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
-	"github.com/manakuro/golang-restfulapi-sample/models"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -37,10 +38,6 @@ func connectDB() *gorm.DB {
 	return db
 }
 
-func init() {
-	connectDB()
-}
-
 func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Recoverer)
@@ -59,9 +56,17 @@ func main() {
 }
 
 func getUsers(w http.ResponseWriter, r *http.Request) {
+	db := connectDB()
+
+	defer db.Close()
+
+	var user models.User
+	db.First(&user, 1)
+
+	fmt.Println(user)
+
 	u := []models.User{
-		{ID: 1, Name: "Taro", Age: 20},
-		{ID: 2, Name: "Jiro", Age: 25},
+		user,
 	}
 	respond(w, http.StatusOK, u)
 }
