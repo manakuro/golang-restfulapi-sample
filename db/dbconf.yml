@@ -1,0 +1,4 @@
+development:
+  driver: mysql
+#  open: root:root@tcp(127.0.0.1:3307)/golang-restfulapi-sample
+  open: tcp:localhost:3307*golang-restfulapi-sample/root/root
